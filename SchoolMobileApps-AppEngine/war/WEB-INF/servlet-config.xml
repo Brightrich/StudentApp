@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<mvc:annotation-driven/>
+	
+	
+	<context:annotation-config />
+	
+	
+	
+	<bean class="com.brt.studentapp.controller.MainController"></bean>
+	<bean class="com.brt.studentapp.controller.AnnouncementController"></bean>
+	<bean class="com.brt.studentapp.controller.SchoolController"></bean>
+	<bean class="com.brt.studentapp.controller.FacilityController"></bean>
+	<bean class="com.brt.studentapp.controller.LocationController"></bean>
+	<bean class="com.brt.studentapp.controller.StaffController"></bean>
+	<bean class="com.brt.studentapp.controller.MatpelController"></bean>
+	<bean class="com.brt.studentapp.controller.MatpelDetailController"></bean>
+		
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/" p:suffix=".jsp" p:order="2"/>
+	
+	<!-- bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+ setting maximum upload size
+        <property name="maxUploadSize" value="100000" />
+        </bean> -->
+	
+	<!-- bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/brtstudentapp" />
+        <property name="username" value="adminbrt" />
+        <property name="password" value="brt123456" />
+        <property name="maxActive" value="100" />
+        <property name="maxIdle" value="30" />
+        <property name="maxWait" value="1000" />
+        <property name="defaultAutoCommit" value="true" />
+        <property name="removeAbandoned" value="true" />
+        <property name="removeAbandonedTimeout" value="60" />
+    </bean>
+    
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+   
+    <bean id="transactionDao" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager" ref="transactionManager" />        
+        <property name="target" ref="transactionDaoTarget" />
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save">PROPAGATION_REQUIRED</prop>
+                <prop key="insert*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="transactionDaoTarget" class="com.brt.studentapp.dao.impl.TransactionDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>	
+    
+    <bean id="announcementService" class="com.brt.studentapp.service.impl.AnnouncementServiceImpl">
+        <property name="transactionDao" ref="transactionDao"/>
+    </bean>
+	
+    <bean id="announcementController" class="com.brt.studentapp.controller.AnnouncementController">
+        <property name="announcementService" ref="announcementService"/>
+    </bean-->
+    
+    
+</beans>

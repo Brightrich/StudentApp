@@ -1,0 +1,2 @@
+serviceClass: com.brt.studentapp.client.GreetingService
+path: DEB526D265B1DB3CD979726E3293D591.gwt.rpc
