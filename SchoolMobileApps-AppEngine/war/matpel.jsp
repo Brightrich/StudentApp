@@ -48,6 +48,27 @@
                         		</div>
 	    					</div>
 	    				</div>
+	    				<div class="span6">
+	    					<div class="widget wodget-nopad">
+	    						<div class="widget-header"> <i class="icon-list-alt"></i>
+                            		<h3>Kelas</h3>
+                        		</div>
+                        		<div class="widget-content">
+                        			<div class='navbar navbar-fixed-top'><div id="toolbar" align="center"></div></div>
+                        			<form action="addKelas" method="post">
+                        				<fieldset>                        					
+                        					<div class="controls">
+												<input style="height:30;" type="text" class="span4" id="kelas" name="kelas" value="" placeholder="Kelas" class="login" autofocus><br>
+											</div>		                        						                        					
+                        					<div class="form-actions" align="left">
+												<button onclick="javascript:$('#pageContent').val($('#content-editor').html());return true;" type="submit" class="btn btn-primary">Save</button> 
+												<button class="btn">Cancel</button>
+											</div>
+                        				</fieldset>
+                        			</form>
+                        		</div>
+	    					</div>
+	    				</div>
 	    			</div>
 	    		</div>
 	    	</div>

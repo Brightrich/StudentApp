@@ -23,6 +23,9 @@
 	<bean class="com.brt.studentapp.controller.StaffController"></bean>
 	<bean class="com.brt.studentapp.controller.MatpelController"></bean>
 	<bean class="com.brt.studentapp.controller.MatpelDetailController"></bean>
+	<bean class="com.brt.studentapp.controller.TugasController"></bean>
+	<bean class="com.brt.studentapp.controller.CalendarController"></bean>
+	<bean class="com.brt.studentapp.controller.JadwalPelajaranController"></bean>
 		
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/" p:suffix=".jsp" p:order="2"/>
 	

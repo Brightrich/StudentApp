@@ -33,10 +33,11 @@
                             		<h3>School</h3>
                         		</div>
                         		<div class="widget-content">
-                        			<div class='navbar navbar-fixed-top'><div id="toolbar" align="center"></div></div>
+                        			<div class='navbar navbar-fixed-top'>
+                        			<div id="toolbar" align="center"></div></div>
                         			<form action="addSchool" method="post">
                         				<fieldset>                        					
-                        						<div id="content-editor" style="width: 100%;"></div>	                        						                        					
+                        					<div id="content-editor" style="width: 100%;border: 2px solid black;"></div>	                        						                        					
                         					<div class="form-actions" align="center">
 												<button onclick="javascript:$('#pageContent').val($('#content-editor').html());return true;" type="submit" class="btn btn-primary">Save</button> 
 												<button class="btn">Cancel</button>

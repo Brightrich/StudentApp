@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.brt.studentapp.controller.holder.MatpelDataHolder;
+import com.brt.studentapp.model.Kelas;
+import com.brt.studentapp.model.KelasEndpoint;
 import com.brt.studentapp.model.Matpel;
 import com.brt.studentapp.model.MatpelEndpoint;
 import com.google.appengine.api.datastore.Key;
@@ -35,6 +37,19 @@ public class MatpelController {
 		m.setKey(k);
 		MatpelEndpoint me = new MatpelEndpoint();
 		me.insertMatpel(m);
+		mav.setViewName("matpel");
+		return mav;
+		
+	}
+	
+	@RequestMapping("admin/addKelas")
+	public ModelAndView addKelas (@ModelAttribute ("form") MatpelDataHolder form, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		Kelas kl = new Kelas();
+		Key k = KeyFactory.createKey("Kelas", form.getKelas());
+		kl.setKey(k);
+		KelasEndpoint me = new KelasEndpoint();
+		me.insertKelas(kl);
 		mav.setViewName("matpel");
 		return mav;
 		

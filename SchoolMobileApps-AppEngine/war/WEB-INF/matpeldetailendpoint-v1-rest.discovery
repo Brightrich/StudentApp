@@ -1,0 +1,282 @@
+{
+ "kind": "discovery#restDescription",
+ "etag": "\"9mnLCPwbyZOHH18t8ExzO2gqgTk/ZCv80iiONllvNEXA-r_yGzMUeEY\"",
+ "discoveryVersion": "v1",
+ "id": "matpeldetailendpoint:v1",
+ "name": "matpeldetailendpoint",
+ "version": "v1",
+ "description": "This is an API",
+ "ownerDomain": "brt.com",
+ "ownerName": "brt.com",
+ "packagePath": "studentapp.model",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rest",
+ "baseUrl": "https://hzb-branch-721.appspot.com/_ah/api/matpeldetailendpoint/v1/",
+ "basePath": "/_ah/api/matpeldetailendpoint/v1/",
+ "rootUrl": "https://hzb-branch-721.appspot.com/_ah/api/",
+ "servicePath": "matpeldetailendpoint/v1/",
+ "batchPath": "batch",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "auth": {
+  "oauth2": {
+   "scopes": {
+    "https://www.googleapis.com/auth/userinfo.email": {
+     "description": "View your email address"
+    }
+   }
+  }
+ },
+ "schemas": {
+  "CollectionResponse_MatpelDetail": {
+   "id": "CollectionResponse_MatpelDetail",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "MatpelDetail"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "Key": {
+   "id": "Key",
+   "type": "object",
+   "properties": {
+    "appId": {
+     "type": "string"
+    },
+    "complete": {
+     "type": "boolean"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "kind": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "namespace": {
+     "type": "string"
+    },
+    "parent": {
+     "$ref": "Key"
+    }
+   }
+  },
+  "MatpelDetail": {
+   "id": "MatpelDetail",
+   "type": "object",
+   "properties": {
+    "content": {
+     "$ref": "Text"
+    },
+    "kelas": {
+     "type": "string"
+    },
+    "key": {
+     "$ref": "Key"
+    },
+    "matpelName": {
+     "type": "string"
+    },
+    "title": {
+     "type": "string"
+    }
+   }
+  },
+  "Text": {
+   "id": "Text",
+   "type": "object",
+   "properties": {
+    "value": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "methods": {
+  "getMatpelDetail": {
+   "id": "matpeldetailendpoint.getMatpelDetail",
+   "path": "matpeldetail/{id}",
+   "httpMethod": "GET",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64",
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "response": {
+    "$ref": "MatpelDetail"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "insertMatpelDetail": {
+   "id": "matpeldetailendpoint.insertMatpelDetail",
+   "path": "matpeldetail",
+   "httpMethod": "POST",
+   "request": {
+    "$ref": "MatpelDetail",
+    "parameterName": "resource"
+   },
+   "response": {
+    "$ref": "MatpelDetail"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "listMatpelDetail": {
+   "id": "matpeldetailendpoint.listMatpelDetail",
+   "path": "matpeldetail",
+   "httpMethod": "GET",
+   "parameters": {
+    "cursor": {
+     "type": "string",
+     "location": "query"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32",
+     "location": "query"
+    }
+   },
+   "response": {
+    "$ref": "CollectionResponse_MatpelDetail"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "listMatpelDetailByParent": {
+   "id": "matpeldetailendpoint.listMatpelDetailByParent",
+   "path": "matpeldetail/{parent}/{kelas}",
+   "httpMethod": "GET",
+   "parameters": {
+    "cursor": {
+     "type": "string",
+     "location": "query"
+    },
+    "kelas": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32",
+     "location": "query"
+    },
+    "parent": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "parent",
+    "kelas"
+   ],
+   "response": {
+    "$ref": "CollectionResponse_MatpelDetail"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "removeMatpelDetail": {
+   "id": "matpeldetailendpoint.removeMatpelDetail",
+   "path": "matpeldetail/{id}",
+   "httpMethod": "DELETE",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64",
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "updateMatpelDetail": {
+   "id": "matpeldetailendpoint.updateMatpelDetail",
+   "path": "matpeldetail",
+   "httpMethod": "PUT",
+   "request": {
+    "$ref": "MatpelDetail",
+    "parameterName": "resource"
+   },
+   "response": {
+    "$ref": "MatpelDetail"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  }
+ }
+}

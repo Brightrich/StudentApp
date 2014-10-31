@@ -326,8 +326,10 @@
             selectable: true,
             selectHelper: true,
             select: function(start, end, allDay) {
+            	
                 var title = prompt('Event Title:');
                 if (title) {
+                	alert(title+" " +start+" "+end+" "+allDay);
                     calendar.fullCalendar('renderEvent',
                             {
                                 title: title,
@@ -365,12 +367,12 @@
                 },
                 {
                     title: 'Meeting',
-                    start: new Date(y, m, d, 10, 30),
+                    start: new Date(y, m, d, 10, 	30),
                     allDay: false
                 },
                 {
                     title: 'Lunch',
-                    start: new Date(y, m, d, 12, 0),
+                    start: new Date(y, m, 29, 12, 0),
                     end: new Date(y, m, d, 14, 0),
                     allDay: false
                 },

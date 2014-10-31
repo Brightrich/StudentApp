@@ -17,12 +17,15 @@
                 	<i class="icon-user-md"></i><span>Administrator</span><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="${pageContext.request.contextPath}/admin/announcementHome">Announcement</a></li>
-                        <li><a href="${pageContext.request.contextPath}/admin/schoolHome">School</a></li>
-                        <li><a href="${pageContext.request.contextPath}/admin/facilityHome">Facility</a></li>
-                        <li><a href="${pageContext.request.contextPath}/admin/locationHome">Location</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/schoolHome">Sejarah</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/facilityHome">Fasilitas</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/locationHome">Lokasi</a></li>
                         <li><a href="${pageContext.request.contextPath}/admin/staffHome">Staff</a></li>   
-                        <li><a href="${pageContext.request.contextPath}/admin/matpelHome">Mata Pelajaran</a></li>
-                        <li><a href="${pageContext.request.contextPath}/admin/matpelDetailHome">Detail Mata Pelajaran</a></li>                     
+                        <li><a href="${pageContext.request.contextPath}/admin/matpelHome">Mata Pelajaran & Kelas</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/matpelDetailHome">Detail Mata Pelajaran</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/tugasHome">Tugas</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/calendarHome">Kalendar Akademik</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/jadwalPelajaranHome">Jadwal Pelajaran</a></li>                     
                     </ul>
                 </li>
             </ul>

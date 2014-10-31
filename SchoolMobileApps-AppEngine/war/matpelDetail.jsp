@@ -34,20 +34,23 @@
                             		<h3>Detail Mata Pelajaran</h3>
                         		</div>
                         		<div class="widget-content">
-                        			<div class='navbar navbar-fixed-top'><div id="toolbar" align="center"></div></div>
+                        			
                         			<form action="addMatpelDetail" method="post">
                         				<fieldset>                        					
                         					<div class="controls">
 												<form:select path="form.matpel" items="${form.matpelMap}" /><br>
-												<input style="height:30;" type="text" class="span4" id="matpelDetail" name="matpelDetailClass" value="" placeholder="Class" class="login" autofocus><br>
+												<form:select path="form.matpelDetailClass" items="${form.kelasMap}" /><br>												
 												<input style="height:30;" type="text" class="span4" id="matmepDetail" name="matpelDetailTitle" value="" placeholder="Title" class="login" autofocus><br>
-											</div>	
-												<div id="content-editor" style="width: 100%;"></div>	                        						                        					
+												<div class='navbar navbar-fixed-top'><div id="toolbar" align="center"></div><div id="content-editor" style="width: 100%;border: 2px solid black;">
+												&nbsp;</div></div>
+												
+											</div>                        						                        					
                         					<div class="form-actions" align="left">
 												<button onclick="javascript:$('#pageContent').val($('#content-editor').html());return true;" type="submit" class="btn btn-primary">Save</button> 
 												<button class="btn">Cancel</button>
 											</div>
                         				</fieldset>
+                        				<input type="hidden" id="pageContent" name="matpelDetailContent"/>
                         			</form>
                         		</div>
 	    					</div>

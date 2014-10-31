@@ -1,13 +1,12 @@
 package com.brt.studentapp.model;
 
 import com.brt.studentapp.EMF;
+
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.response.CollectionResponse;
 import com.google.appengine.api.datastore.Cursor;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.datanucleus.query.JPACursorHelper;
 
 import java.util.List;
@@ -30,7 +29,7 @@ public class MatpelDetailEndpoint {
 	 * persisted and a cursor to the next page.
 	 */
 	@SuppressWarnings({ "unchecked", "unused" })
-	@ApiMethod(name = "listMatpelDetail", path = "list_matpel_detail")
+	@ApiMethod(name = "listMatpelDetail")
 	public CollectionResponse<MatpelDetail> listMatpelDetail(
 			@Nullable @Named("cursor") String cursorString,
 			@Nullable @Named("limit") Integer limit) {
@@ -76,11 +75,11 @@ public class MatpelDetailEndpoint {
 	 * @param id the primary key of the java bean.
 	 * @return The entity with primary key id.
 	 */
-	@ApiMethod(name = "getMatpelDetail", path = "get_matpel_detail")
+	@ApiMethod(name = "getMatpelDetail")
 	public MatpelDetail getMatpelDetail(@Named("id") Long id) {
 		EntityManager mgr = getEntityManager();
 		MatpelDetail matpeldetail = null;
-		try {
+		try {	
 			matpeldetail = mgr.find(MatpelDetail.class, id);
 		} finally {
 			mgr.close();
@@ -88,17 +87,45 @@ public class MatpelDetailEndpoint {
 		return matpeldetail;
 	}
 	
-	@ApiMethod(name = "getMatpelDetailByKey", path = "get_matpel_detail_by_key")
-	public MatpelDetail getMatpelDetailByKey(@Named("id") String kind, @Named("name") String name) {
-		EntityManager mgr = getEntityManager();
-		MatpelDetail matpeldetail = null;
+	@SuppressWarnings({ "unchecked", "unused" })
+	@ApiMethod(name = "listMatpelDetailByParent")
+	public CollectionResponse<MatpelDetail> listMatpelDetailByParent(@Named("parent") String matpelName,@Named("kelas") String kelas,
+			@Nullable @Named("cursor") String cursorString,
+			@Nullable @Named("limit") Integer limit) {
+
+		EntityManager mgr = null;
+		Cursor cursor = null;
+		List<MatpelDetail> execute = null;
+
 		try {
-			Key key = KeyFactory.createKey(kind, name);
-			matpeldetail = mgr.find(MatpelDetail.class, key);
+			mgr = getEntityManager();
+			Query query = mgr
+					.createQuery("select from MatpelDetail as MatpelDetail WHERE matpelName='"+ matpelName+"' and Kelas='"+ kelas +"'");
+			if (cursorString != null && cursorString != "") {
+				cursor = Cursor.fromWebSafeString(cursorString);
+				query.setHint(JPACursorHelper.CURSOR_HINT, cursor);
+			}
+
+			if (limit != null) {
+				query.setFirstResult(0);
+				query.setMaxResults(limit);
+			}
+
+			execute = (List<MatpelDetail>) query.getResultList();
+			cursor = JPACursorHelper.getCursor(execute);
+			if (cursor != null)
+				cursorString = cursor.toWebSafeString();
+
+			// Tight loop for fetching all entities from datastore and accomodate
+			// for lazy fetch.
+			for (MatpelDetail obj : execute)
+				;
 		} finally {
 			mgr.close();
 		}
-		return matpeldetail;
+
+		return CollectionResponse.<MatpelDetail> builder().setItems(execute)
+				.setNextPageToken(cursorString).build();
 	}
 
 	/**

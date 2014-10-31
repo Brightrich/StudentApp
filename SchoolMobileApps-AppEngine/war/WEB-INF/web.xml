@@ -111,7 +111,7 @@
     <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
     <init-param>
       <param-name>services</param-name>
-      <param-value>com.brt.studentapp.DeviceInfoEndpoint,com.brt.studentapp.MessageEndpoint,com.brt.studentapp.model.FacilityEndpoint,com.brt.studentapp.model.LocationEndpoint,com.brt.studentapp.model.MatpelDetailEndpoint,com.brt.studentapp.model.MatpelEndpoint,com.brt.studentapp.model.PageEndpoint,com.brt.studentapp.model.StaffEndpoint</param-value>
+      <param-value>com.brt.studentapp.DeviceInfoEndpoint,com.brt.studentapp.MessageEndpoint,com.brt.studentapp.model.FacilityEndpoint,com.brt.studentapp.model.JadwalPelajaranEndpoint,com.brt.studentapp.model.KelasEndpoint,com.brt.studentapp.model.LocationEndpoint,com.brt.studentapp.model.MatpelDetailEndpoint,com.brt.studentapp.model.MatpelEndpoint,com.brt.studentapp.model.PageEndpoint,com.brt.studentapp.model.StaffEndpoint,com.brt.studentapp.model.TugasEndpoint,com.brt.studentapp.model.UserEndpoint</param-value>
     </init-param>
   </servlet>
 

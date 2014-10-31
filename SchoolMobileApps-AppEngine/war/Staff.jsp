@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en">
 	<head>
 		<title>BRT Student App - Admin Console</title>
@@ -40,10 +41,38 @@
 												<input style="height:30;" type="text" class="span4" id="staff" name="StaffNIK" value="" placeholder="NIK" class="login" autofocus><br>
 												<input style="height:30;" type="text" class="span4" id="staff" name="StaffName" value="" placeholder="Name" class="login" autofocus><br>
 												<input style="height:30;" type="text" class="span4" id="staff" name="StaffRole" value="" placeholder="Role" class="login" autofocus><br>
-												<input type="file" name="staffPhoto">
+												Foto &nbsp; <input type="file" name="staffPhoto">
 											</div>		                        						                        					
                         					<div class="form-actions" align="left">
 												<button onclick="javascript:$('#pageContent').val($('#content-editor').html());return true;" type="submit" class="btn btn-primary">Save</button> 
+												<button class="btn">Cancel</button>
+											</div>
+                        				</fieldset>
+                        			</form>
+                        		</div>
+	    					</div>
+	    				</div>
+	    				<div class="span6">
+	    					<div class="widget wodget-nopad">
+	    						<div class="widget-header"> <i class="icon-list-alt"></i>
+                            		<h3>Murid</h3>
+                        		</div>
+                        		<div class="widget-content">
+                        			<div class='navbar navbar-fixed-top'><div id="toolbar" align="center"></div></div>
+                        			<form action="addStudent" method="post"  enctype="multipart/form-data">
+                        				<fieldset>                        					
+                        					<div class="controls">
+												<input style="height:30;" type="text" class="span4" name="StudentNIS" value="" placeholder="Nomor Induk Siswa" class="login" autofocus><br>
+												<input style="height:30;" type="text" class="span4" name="StudentFirstName" value="" placeholder="Nama Depan" class="login" autofocus><br>
+												<input style="height:30;" type="text" class="span4" name="StudentLastName" value="" placeholder="Nama Belakang" class="login" autofocus><br>
+												<input style="height:30;" type="text" class="span4" name="StudentPhone" value="" placeholder="No. Telepon" class="login" autofocus><br>
+												<input style="height:30;" type="text" class="span4" name="StudentEmail" value="" placeholder="Email" class="login" autofocus><br>
+												<input style="height:30;" type="text" class="span4" name="StudentIMSI" value="" placeholder="IMSI" class="login" autofocus><br>
+												<form:select path="form.Kelas" items="${form.kelasMap}"/>&nbsp;(Kelas)<br>
+												Foto &nbsp; <input type="file" name="studentPhoto">
+											</div>		                        						                        					
+                        					<div class="form-actions" align="left">
+												<button type="submit" class="btn btn-primary">Save</button> 
 												<button class="btn">Cancel</button>
 											</div>
                         				</fieldset>

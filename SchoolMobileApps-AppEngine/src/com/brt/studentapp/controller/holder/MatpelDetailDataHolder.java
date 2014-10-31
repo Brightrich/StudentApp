@@ -1,7 +1,6 @@
 package com.brt.studentapp.controller.holder;
 
 import java.util.HashMap;
-
 import com.brt.studentapp.model.Matpel;
 
 public class MatpelDetailDataHolder {
@@ -12,6 +11,7 @@ public class MatpelDetailDataHolder {
 	private HashMap<String, Matpel> matpelKeyMap;
 	private String matpel;
 	private String matpelDetailContent;
+	private HashMap<String, String> kelasMap;
 	
 	
 	public HashMap<String, String> getMatpelMap() {
@@ -60,6 +60,14 @@ public class MatpelDetailDataHolder {
 
 	public void setMatpelKeyMap(HashMap<String, Matpel> matpelKeyMap) {
 		this.matpelKeyMap = matpelKeyMap;
+	}
+
+	public HashMap<String, String> getKelasMap() {
+		return kelasMap;
+	}
+
+	public void setKelasMap(HashMap<String, String> kelasMap) {
+		this.kelasMap = kelasMap;
 	}
 
 	

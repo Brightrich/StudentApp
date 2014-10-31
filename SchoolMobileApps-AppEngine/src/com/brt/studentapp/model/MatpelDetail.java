@@ -12,11 +12,12 @@ import com.google.appengine.api.datastore.Text;
 public class MatpelDetail {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 	private Key key;
 	private String Kelas;
 	private String Title;
-	private Text Content;
+	private Text Content;	
+	private String matpelName;
 	
 	public Key getKey() {
 		return key;
@@ -42,7 +43,11 @@ public class MatpelDetail {
 	public void setContent(Text content) {
 		Content = content;
 	}
-
-	
+	public String getMatpelName() {
+		return matpelName;
+	}
+	public void setMatpelName(String id) {
+		this.matpelName = id;
+	}
 	
 }
